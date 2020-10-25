@@ -2,7 +2,7 @@ const initialState = {
   category: null,
   sortBy: {
     type: 'popular',
-    order: 'desc'
+    order: 'desc',
   },
 };
 
@@ -13,13 +13,13 @@ const filters = (state = initialState, action) => {
         ...state,
         sortBy: action.payload,
       };
-      case 'SET_CATEGORY':
-        return {
-          ...state,
-          category: action.payload,
-        };
+    case 'SET_CATEGORY':
+      return {
+        ...state,
+        category: action.payload,
+      };
     default:
-      return state;;
+      return state;
   }
 };
 
