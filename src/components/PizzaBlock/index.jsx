@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Button } from '../index';
-import { useSelector } from 'react-redux';
 
 function PizzaBlock({ id, name, imageUrl, price, types, sizes, onClickAddPizza, addedCount }) {
   const availableTypes = ['тонкое', 'традиционное'];
@@ -10,8 +9,6 @@ function PizzaBlock({ id, name, imageUrl, price, types, sizes, onClickAddPizza, 
 
   const [activeType, setActiveType] = React.useState(types[0]);
   const [activeSize, setActiveSize] = React.useState(availableSizes.indexOf(sizes[0]));
-
-  // const pizzasInCart = useSelector(({ cart }) => cart.items[id]);
 
   const onSelectType = (index) => {
     setActiveType(index);
@@ -94,14 +91,14 @@ PizzaBlock.propTypes = {
   types: PropTypes.arrayOf(PropTypes.number),
   sizes: PropTypes.arrayOf(PropTypes.number),
   onClickAddPizza: PropTypes.func,
-  addedCount: PropTypes.number
+  addedCount: PropTypes.number,
 };
 
 PizzaBlock.defaultProps = {
   name: '----',
   price: 0,
   types: [],
-  sizes: []
+  sizes: [],
 };
 
 export default PizzaBlock;
